@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!--素材服务器地址-->
+	<loaderUrl><![CDATA[http://221.226.17.14:8000/bar/]]></loaderUrl>
+	<!--游戏后台地址-->
+	<serverUrl><![CDATA[http://221.226.17.14:8000/bar/api.php]]></serverUrl>
+	<!--素材策略文件地址-->
+	<loadPolicyFile><![CDATA[http://221.226.17.14/image/avatar/crossdomain.xml]]></loadPolicyFile>
+	<!--后台策略文件地址-->
+	<serverPolicyFile><![CDATA[http://221.226.17.14/crossdomain.xml]]></serverPolicyFile>
+	<otherPolicyFile>
+		<item><![CDATA[http://img1.yegeer.com/avatar/crossdomain.xml]]></item>
+		<item><![CDATA[http://www.yegeer.com/crossdomain.xml]]></item>
+	</otherPolicyFile>
+        <Debug value="1" />
+</root>
