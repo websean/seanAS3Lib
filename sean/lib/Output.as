@@ -83,9 +83,8 @@ package sean.lib
 			_modifyArea.y = Panel_H - 5;
 			
 			_dragFT = new DragFeature();
-			_modifyFT = new DragFeature();
+			_modifyFT = new DragFeature();			
 			
-			_sendLC = new LocalConnection();
 			_receiveLC = new LocalConnection();
 		}
 		
@@ -102,6 +101,11 @@ package sean.lib
 		///输出字符信息
 		public static function log(... args):void
 		{
+			if (_sendLC == null)
+			{
+				_sendLC = new LocalConnection();
+			}
+			
 			var content:String = "";
 			for each(var d:* in args)
 			{
