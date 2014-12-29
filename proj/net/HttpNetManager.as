@@ -26,6 +26,7 @@
 	{
 		
 		private static var HNM:HttpNetManager;
+		public static var Local:Boolean = false;
 		
 		private var _urlLoader:URLLoader;
 		
@@ -72,7 +73,9 @@
 			var v:URLVariables = new URLVariables();
 			v.mod = mod;
 			v.act = act;
-			/*v.reqTime = Model.getIns().ReqTime;
+			/*v.uid = Model.getIns().Uid;
+			v.brandhallid = Model.getIns().BrandHallID;
+			v.reqTime = Model.getIns().ReqTime;
 			v.t = Model.getIns().ReqTime;
 			v.sid = Model.getIns().SessionID;
 			v.uid = Model.getIns().Uid;
@@ -140,16 +143,20 @@
 				//trace("切换不同主人场景请求！！！");
 				//GlobalEventDispatcher.getIns().sendGlobalEvent(new GlobalEvent(EventConfig.REQUEST_SWITCH_SCENE));
 			}
-			
+			if (Local) 
+			{
 			//***×××××××××××××××××××××××××××××××××××测试用×××××××××××××××××××××××××××××××××××××××××××*
-			/*var v:URLVariables = urlReq.data as URLVariables;
-			var loadurl:String = "xml/" + String(int(v.mod) * 10000 + int(v.act)) + ".xml" ;
+			var v:URLVariables = urlReq.data as URLVariables;
+			var loadurl:String = "data/" + String(int(v.mod) * 1000 + int(v.act)) + ".xml" ;
 			var urlReq_t:URLRequest = new URLRequest(loadurl);			
 			trace("单机请求地址：", loadurl);
-			_urlLoader.load(urlReq_t);*/
+			_urlLoader.load(urlReq_t);
 			//***×××××××××××××××××××××××××××××××××××测试用×××××××××××××××××××××××××××××××××××××××××××*
-			
-			_urlLoader.load(urlReq);
+			}
+			else
+			{
+				_urlLoader.load(urlReq);
+			}			
 			
 			//
 			_ReqResultTimer.addEventListener(TimerEvent.TIMER_COMPLETE, onConnectResultTimerComplete_handle);
